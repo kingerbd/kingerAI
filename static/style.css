@@ -1,0 +1,686 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap');
+
+:root {
+    --primary-color: #64ffda; /* Cyan Accent */
+    --secondary-color: #00bcd4; /* Teal */
+    --accent-color: #ffc107; /* Amber */
+    --background-dark: #0a192f; /* Dark Navy */
+    --background-light: #f0f8ff; /* Light Cyan */
+    --text-primary-dark: #ccd6f6; /* Light Blue */
+    --text-secondary-dark: #8892b0; /* Medium Blue */
+    --text-primary-light: #0a192f;
+    --text-secondary-light: #545e6c;
+    --border-color-dark: #303c55;
+    --border-color-light: #d7dfe9;
+    --message-user-bg-dark: #1e407c; /* Darker Blue */
+    --message-assistant-bg-dark: #2e3a4e; /* Dark Gray-Blue */
+    --message-user-text-dark: #ffffff;
+    --message-assistant-text-dark: #e6f1ff;
+    --message-user-bg-light: #e0f2f7;
+    --message-assistant-bg-light: #f5faff;
+    --message-user-text-light: #1976d2;
+    --message-assistant-text-light: #37474f;
+    --shadow-color-dark: rgba(0, 0, 0, 0.7);
+    --shadow-color-light: rgba(0, 0, 0, 0.2);
+    --gradient-cosmic-start: #1c92d2; /* Bright Sky Blue */
+    --gradient-cosmic-end: #f2fcfe;   /* Very Light Blue */
+}
+
+body {
+    font-family: 'Roboto', sans-serif;
+    margin: 0;
+    background: linear-gradient(45deg, #0a0a0a, #1a1a1a, #0a0a0a); /* پس‌زمینه تیره‌تر و عمیق‌تر */
+    background-size: 200% 200%;
+    animation: gradientAnimation 15s ease infinite; /* انیمیشن پس‌زمینه جادویی */
+    color: var(--text-primary-dark);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    overflow: hidden;
+    direction: rtl;
+    transition: background 0.5s ease, color 0.5s ease;
+    font-size: 1.1rem;
+}
+
+@keyframes gradientAnimation {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+}
+
+body.light-theme {
+    background: linear-gradient(to bottom right, #eceff1, #f9fbe7); /* پس زمینه گرادیانی روشن */
+    color: var(--text-primary-light);
+}
+
+.kinger-ultimate-beyond-container {
+    position: relative;
+    width: 95%;
+    max-width: 1000px;
+    height: 90vh;
+    border-radius: 30px;
+    box-shadow: 0 100px 300px rgba(0, 0, 0, 0.8); /* سایه عمیق‌تر */
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    backdrop-filter: blur(40px);
+    transition: box-shadow 0.5s ease, border 0.5s ease;
+    border: 2px solid var(--primary-color); /* بوردر 강조 شده */
+}
+
+.kinger-ultimate-beyond-neumorphic {
+    background-color: var(--background-dark);
+    box-shadow: 10px 10px 20px var(--shadow-color-dark),
+                -10px -10px 20px #000814; /* سایه‌های نئومورفیک تیره */
+}
+
+body.light-theme .kinger-ultimate-beyond-neumorphic {
+    background-color: var(--background-light);
+    box-shadow: 5px 5px 10px var(--shadow-color-light),
+                -5px -5px 10px #ffffff; /* سایه‌های نئومورفیک روشن */
+}
+
+.kinger-ultimate-beyond-header {
+    background-color: rgba(0, 0, 0, 0.7); /* شفافیت بیشتر */
+    color: var(--text-primary-dark);
+    padding: 25px 30px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 2px solid var(--border-color-dark); /* بوردر 강조 شده */
+    transition: background-color 0.5s ease, color 0.5s ease;
+}
+
+body.light-theme .kinger-ultimate-beyond-header {
+    background-color: rgba(240, 248, 255, 0.7);
+    color: var(--text-primary-light);
+    border-bottom: 2px solid var(--border-color-light);
+}
+
+.kinger-ultimate-beyond-logo {
+    display: flex;
+    align-items: center;
+    font-size: 2.8rem;
+    font-weight: 700;
+    letter-spacing: 1px;
+    text-shadow: 0 3px 10px var(--shadow-color-dark);
+}
+
+body.light-theme .kinger-ultimate-beyond-logo {
+    text-shadow: 0 2px 5px var(--shadow-color-light);
+}
+
+.kinger-ultimate-beyond-logo-icon {
+    width: 40px;
+    height: 40px;
+    margin-left: 15px;
+    filter: drop-shadow(0 0 10px var(--primary-color)); /* درخشش ملایم */
+    animation: logoPulse 2s ease-in-out infinite alternate; /* پالس ملایم لوگو */
+}
+
+@keyframes logoPulse {
+    0% { transform: scale(1); opacity: 0.8; }
+    100% { transform: scale(1.05); opacity: 1; }
+}
+
+.kinger-ultimate-beyond-logo-iridescent {
+    animation: iridescent 3s linear infinite;
+    background-clip: text;
+    -webkit-background-clip: text;
+    color: transparent;
+    background-size: 200% 100%;
+    background-position: 0 0;
+}
+
+@keyframes iridescent {
+    0% { background-image: linear-gradient(to right, #f0f, #0ff, #ff0, #f0f); background-position: 0 0; }
+    50% { background-position: 100% 0; }
+    100% { background-position: 0 0; }
+}
+
+.kinger-ultimate-beyond-actions {
+    display: flex;
+    gap: 15px;
+}
+
+.kinger-ultimate-beyond-button {
+    background: none;
+    border: 2px solid var(--primary-color);
+    color: var(--primary-color);
+    cursor: pointer;
+    outline: none;
+    padding: 14px 22px;
+    border-radius: 10px;
+    font-weight: 500;
+    transition: background-color 0.3s ease, color 0.3s ease, transform 0.2s ease, box-shadow 0.3s ease;
+    font-size: 1.1rem;
+    box-shadow: 0 4px 12px rgba(100, 255, 218, 0.8); /* سایه 강조 شده */
+}
+
+.kinger-ultimate-beyond-button:hover {
+    background-color: var(--primary-color);
+    color: var(--background-dark);
+    transform: translateY(-3px);
+    box-shadow: 0 6px 18px rgba(100, 255, 218, 0.9); /* سایه 강조 شده در هاور */
+}
+
+body.light-theme .kinger-ultimate-beyond-button {
+    border-color: var(--secondary-color);
+    color: var(--secondary-color);
+}
+
+body.light-theme .kinger-ultimate-beyond-button:hover {
+    background-color: var(--secondary-color);
+    color: var(--background-light);
+    box-shadow: 0 3px 8px rgba(0, 184, 212, 0.5);
+}
+
+.kinger-ultimate-beyond-neumorphic-button {
+    background-color: transparent;
+    border: none;
+    box-shadow: 5px 5px 10px var(--shadow-color-dark),
+                -5px -5px 10px #000814;
+    transition: box-shadow 0.3s ease, transform 0.3s ease;
+}
+
+body.light-theme .kinger-ultimate-beyond-neumorphic-button {
+    box-shadow: 3px 3px 6px var(--shadow-color-light),
+                -3px -3px 6px #ffffff;
+}
+
+.kinger-ultimate-beyond-neumorphic-button:hover {
+    box-shadow: 3px 3px 6px var(--shadow-color-dark),
+                -3px -3px 6px #000814,
+                inset 2px 2px 5px #000814,
+                inset -2px -2px 5px var(--shadow-color-dark);
+    transform: scale(0.98);
+}
+
+body.light-theme .kinger-ultimate-beyond-neumorphic-button:hover {
+    box-shadow: 2px 2px 4px var(--shadow-color-light),
+                -2px -2px 4px #ffffff,
+                inset 1px 1px 3px #ffffff,
+                inset -1px -1px 3px var(--shadow-color-light);
+}
+
+.kinger-ultimate-beyond-button-animated {
+    position: relative;
+    overflow: hidden;
+}
+
+.kinger-ultimate-beyond-button-animated::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+    transition: left 0.4s ease-in-out;
+}
+
+.kinger-ultimate-beyond-button-animated:hover::before {
+    left: 100%;
+}
+
+.kinger-ultimate-beyond-icon {
+    width: 24px;
+    height: 24px;
+    display: block;
+}
+
+.kinger-ultimate-beyond-chat-area {
+    flex-grow: 1;
+    padding: 45px;
+    overflow-y: auto;
+    display: flex;
+    flex-direction: column;
+    gap: 22px;
+    scroll-behavior: smooth;
+    font-size: 1.1rem;
+}
+
+.kinger-ultimate-beyond-chatbox::-webkit-scrollbar {
+    width: 10px;
+}
+
+.kinger-ultimate-beyond-chatbox::-webkit-scrollbar-thumb {
+    background-color: var(--primary-color);
+    border-radius: 12px;
+}
+
+body.light-theme .kinger-ultimate-beyond-chatbox::-webkit-scrollbar-thumb {
+    background-color: var(--secondary-color);
+}
+
+.kinger-ultimate-beyond-chatbox::-webkit-scrollbar-track {
+    background-color: transparent;
+}
+
+.kinger-ultimate-beyond-message {
+    padding: 22px;
+    border-radius: 20px;
+    max-width: 85%;
+    line-height: 1.8;
+    word-break: break-word;
+    box-shadow: 0 4px 12px var(--shadow-color-dark); /* سایه 강조 شده */
+    opacity: 0.98;
+    transition: transform 0.3s ease-out, box-shadow 0.3s ease-out;
+    border: 1px solid transparent;
+    font-size: 1.1rem;
+}
+
+.kinger-ultimate-beyond-message:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 6px 18px var(--shadow-color-dark); /* سایه 강조 شده در هاور */
+    border-color: rgba(255, 255, 255, 0.1);
+}
+
+.kinger-ultimate-beyond-message.user {
+    background-color: var(--message-user-bg-dark);
+    color: var(--message-user-text-dark);
+    align-self: flex-end;
+    text-align: right;
+    border-top-right-radius: 25px;
+    border-bottom-right-radius: 25px;
+    border-top-left-radius: 12px;
+    border-bottom-left-radius: 12px;
+}
+
+body.light-theme .kinger-ultimate-beyond-message.user {
+    background-color: var(--message-user-bg-light);
+    color: var(--message-user-text-light);
+    box-shadow: 0 4px 10px var(--shadow-color-light);
+}
+
+.kinger-ultimate-beyond-message.assistant {
+    background-color: var(--message-assistant-bg-dark);
+    color: var(--message-assistant-text-dark);
+    align-self: flex-start;
+    border-top-left-radius: 25px;
+    border-bottom-left-radius: 25px;
+    border-top-right-radius: 12px;
+    border-bottom-right-radius: 12px;
+}
+
+body.light-theme .kinger-ultimate-beyond-message.assistant {
+    background-color: var(--message-assistant-bg-light);
+    color: var(--message-assistant-text-light);
+    box-shadow: 0 4px 10px var(--shadow-color-light);
+}
+
+.kinger-ultimate-beyond-input-area {
+    padding: 30px;
+    background-color: rgba(0, 0, 0, 0.7); /* شفافیت بیشتر */
+    border-top: 2px solid var(--border-color-dark); /* بوردر 강조 شده */
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    transition: background-color 0.5s ease;
+}
+
+body.light-theme .kinger-ultimate-beyond-input-area {
+    background-color: rgba(240, 248, 255, 0.7);
+    border-top: 2px solid var(--border-color-light);
+}
+
+.kinger-ultimate-beyond-input-wrapper {
+    flex-grow: 1;
+}
+
+.kinger-ultimate-beyond-input-field {
+    width: 100%;
+    padding: 20px;
+    border: 1px solid var(--border-color-dark);
+    border-radius: 15px;
+    background-color: #192734;
+    color: var(--text-primary-dark);
+    font-size: 1.3rem;
+    outline: none;
+    transition: background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;
+    box-shadow: inset 0 2px 8px rgba(0, 0, 0, 0.6); /* سایه داخلی */
+}
+
+body.light-theme .kinger-ultimate-beyond-input-field {
+    background-color: #ffffff;
+    color: var(--text-primary-light);
+    border: 1px solid var(--border-color-light);
+}
+
+.kinger-ultimate-beyond-neumorphic-input {
+    background-color: transparent;
+    border: none;
+    box-shadow: inset 5px 5px 10px var(--shadow-color-dark),
+                inset -5px -5px 10px #000814;
+}
+
+body.light-theme .kinger-ultimate-beyond-neumorphic-input {
+    box-shadow: inset 3px 3px 6px var(--shadow-color-light),
+                inset -3px -3px 6px #ffffff;
+}
+
+.kinger-ultimate-beyond-input-field:focus {
+    border-color: var(--primary-color);
+    box-shadow: 0 0 10px rgba(100, 255, 218, 0.6);
+}
+
+body.light-theme .kinger-ultimate-beyond-input-field:focus {
+    border-color: var(--secondary-color);
+    box-shadow: 0 0 10px rgba(0, 184, 212, 0.4);
+}
+
+.kinger-ultimate-beyond-input-buttons {
+    display: flex;
+    gap: 15px;
+}
+
+.kinger-ultimate-beyond-button {
+    background-color: var(--primary-color);
+    color: var(--background-dark);
+    box-shadow: 0 6px 15px rgba(100, 255, 218, 0.7);
+    padding: 14px 24px;
+    border-radius: 12px;
+    font-weight: 600;
+    transition: background-color 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease, color 0.3s ease;
+}
+
+body.light-theme .kinger-ultimate-beyond-button {
+    color: var(--background-light);
+    box-shadow: 0 4px 10px rgba(0, 184, 212, 0.6);
+}
+
+.kinger-ultimate-beyond-button:hover {
+    background-color: var(--secondary-color);
+    transform: translateY(-4px);
+    box-shadow: 0 8px 20px rgba(0, 184, 212, 0.8);
+}
+
+body.light-theme .kinger-ultimate-beyond-button:hover {
+    box-shadow: 0 6px 15px rgba(0, 184, 212, 0.7);
+}
+
+.kinger-ultimate-beyond-message-counter {
+    text-align: center;
+    padding: 22px;
+    background-color: rgba(0, 0, 0, 0.7); /* شفافیت بیشتر */
+    color: var(--text-secondary-dark);
+    font-size: 1.1rem;
+    border-top: 2px solid var(--border-color-dark); /* بوردر 강조 شده */
+    border-bottom-left-radius: 30px;
+    border-bottom-right-radius: 30px;
+    transition: background-color 0.5s ease, color 0.5s ease;
+}
+
+body.light-theme .kinger-ultimate-beyond-message-counter {
+    background-color: rgba(240, 248, 255, 0.7);
+    color: var(--text-secondary-light);
+    border-top: 2px solid var(--border-color-light);
+}
+
+.kinger-ultimate-beyond-spinner-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 28px;
+    color: var(--accent-color);
+    font-size: 1.3rem;
+}
+
+.kinger-ultimate-beyond-spinner {
+    border: 6px solid rgba(0, 0, 0, 0.1);
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    border-left-color: var(--accent-color);
+    animation: spin 1.2s linear infinite;
+}
+
+.kinger-ultimate-beyond-spinner-text {
+    margin-right: 12px;
+}
+
+.kinger-ultimate-beyond-error-message {
+    background-color: #ffdddd;
+    color: #e53935;
+    padding: 20px;
+    border-radius: 15px;
+    font-size: 1.2rem;
+    text-align: center;
+    box-shadow: 0 3px 8px var(--shadow-color-dark);
+}
+
+.theme-light-icon, .theme-dark-icon {
+    width: 22px;
+    height: 22px;
+}
+
+.kinger-ultimate-beyond-message.assistant.image-message {
+    text-align: center;
+}
+
+.kinger-ultimate-beyond-image-generated {
+    max-width: 100%;
+    border-radius: 15px;
+    box-shadow: 0 8px 20px var(--shadow-color-dark);
+}
+
+.kinger-ultimate-beyond-empty-state {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    flex-grow: 1;
+    padding: 50px;
+    text-align: center;
+    opacity: 0.9;
+}
+
+.kinger-ultimate-beyond-empty-state-text {
+    font-size: 1.8rem;
+    color: var(--text-secondary-dark);
+    margin-top: 30px;
+    text-shadow: 0 2px 5px var(--shadow-color-dark);
+}
+
+body.light-theme .kinger-ultimate-beyond-empty-state-text {
+    color: var(--text-secondary-light);
+    text-shadow: 0 1px 3px var(--shadow-color-light);
+}
+
+#empty-state-animation {
+    width: 120px;
+    height: 120px;
+    border-radius: 50%;
+    background-image: radial-gradient(circle, #4a90e2, #63b8ff);
+    opacity: 0.7;
+    box-shadow: 0 6px 15px rgba(74, 144, 226, 0.6);
+    animation: pulse 3s infinite alternate;
+}
+
+@keyframes pulse {
+    0% {
+        transform: scale(1);
+        opacity: 0.7;
+    }
+    100% {
+        transform: scale(1.1);
+        opacity: 0.9;
+    }
+}
+
+#vanta-net {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+}
+
+.kinger-ultimate-beyond-typing-indicator {
+    background-color: var(--message-assistant-bg-dark);
+    color: var(--message-assistant-text-dark);
+    align-self: flex-start;
+    border-radius: 20px;
+    padding: 15px;
+    max-width: 60%;
+    font-size: 0.9rem;
+    opacity: 0.7;
+}
+
+body.light-theme .kinger-ultimate-beyond-typing-indicator {
+    background-color: var(--message-assistant-bg-light);
+    color: var(--message-assistant-text-light);
+}
+
+.magic-particle {
+    position: fixed;
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    pointer-events: none;
+    z-index: 1000; /* اطمینان از نمایش روی سایر عناصر */
+}
+
+/* مدیا کوئری‌ها برای ریسپانسیو بودن */
+@media (min-width: 769px) {
+    .kinger-ultimate-beyond-container {
+        width: 80%;
+        height: 85vh;
+    }
+
+    .kinger-ultimate-beyond-logo {
+        font-size: 3rem;
+    }
+
+    .kinger-ultimate-beyond-button {
+        padding: 16px 24px;
+        font-size: 1.2rem;
+    }
+
+    .kinger-ultimate-beyond-chat-area {
+        padding: 50px;
+        gap: 25px;
+        font-size: 1.2rem;
+    }
+
+    .kinger-ultimate-beyond-message {
+        padding: 24px;
+        font-size: 1.2rem;
+    }
+
+    .kinger-ultimate-beyond-input-field {
+        padding: 22px;
+        font-size: 1.4rem;
+    }
+
+    .kinger-ultimate-beyond-message-counter {
+        padding: 24px;
+        font-size: 1.2rem;
+    }
+
+    .kinger-ultimate-beyond-spinner-container {
+        padding: 30px;
+        font-size: 1.4rem;
+    }
+
+    .kinger-ultimate-beyond-error-message {
+        padding: 22px;
+        font-size: 1.3rem;
+    }
+
+    .kinger-ultimate-beyond-empty-state-text {
+        font-size: 2rem;
+    }
+}
+
+@media (min-width: 1001px) {
+    .kinger-ultimate-beyond-container {
+        width: 1000px;
+        height: 750px;
+    }
+}
+
+@media (max-width: 600px) {
+    .kinger-ultimate-beyond-container {
+        width: 98%;
+        height: 95vh;
+        border-radius: 20px;
+    }
+
+    .kinger-ultimate-beyond-header {
+        padding: 15px 20px;
+    }
+
+    .kinger-ultimate-beyond-logo {
+        font-size: 2rem;
+    }
+
+    .kinger-ultimate-beyond-actions {
+        gap: 10px;
+    }
+
+    .kinger-ultimate-beyond-button {
+        padding: 10px 16px;
+        font-size: 1rem;
+    }
+
+    .kinger-ultimate-beyond-chat-area {
+        padding: 30px;
+        gap: 15px;
+        font-size: 1rem;
+    }
+
+    .kinger-ultimate-beyond-message {
+        padding: 16px;
+        font-size: 1rem;
+        border-radius: 15px;
+    }
+
+    .kinger-ultimate-beyond-input-area {
+        padding: 20px;
+        gap: 10px;
+    }
+
+    .kinger-ultimate-beyond-input-field {
+        padding: 14px;
+        font-size: 1.1rem;
+        border-radius: 12px;
+    }
+
+    .kinger-ultimate-beyond-message-counter {
+        padding: 15px;
+        font-size: 0.9rem;
+        border-bottom-left-radius: 20px;
+        border-bottom-right-radius: 20px;
+    }
+
+    .kinger-ultimate-beyond-spinner-container {
+        padding: 20px;
+        font-size: 1.1rem;
+    }
+
+    .kinger-ultimate-beyond-error-message {
+        padding: 14px;
+        font-size: 0.9rem;
+        border-radius: 12px;
+    }
+
+    .kinger-ultimate-beyond-empty-state-text {
+        font-size: 1.4rem;
+    }
+
+    #empty-state-animation {
+        width: 100px;
+        height: 100px;
+    }
+}
+#chatbox {
+    /* ... سایر استایل‌ها ... */
+    overflow-y: auto;
+    scroll-behavior: smooth; /* این خط مسئول اسکرول نرم است */
+}
+.hidden {
+    display: none !important;
+}
